@@ -15,7 +15,7 @@ class SelectStudents {
         //  Student list
         var studentList = [];
         
-        let sqlquery = "SELECT * FROM tblStudents";
+        let sqlquery = "SELECT * FROM tblStudent";
 
         //  Open the connection;
         this.db.connect();
@@ -23,10 +23,6 @@ class SelectStudents {
         //  Perform the query
         this.db.query(sqlquery, (err, rows, fields) => {
             
-            if (err) throw err;
-          
-            console.log('The solution is: ', rows[0].solution)
-          
             studentList.rows[0];
 
         });
