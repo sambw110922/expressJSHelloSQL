@@ -1,0 +1,64 @@
+
+//  The scema for the test database.
+
+CREATE TABLE tblHouse (
+    id int PRIMARY KEY auto_increment,
+    houseName varchar(50)
+)
+
+CREATE TABLE tblStudent (
+    id int PRIMARY KEY auto_increment,
+    fname varchar(100),
+    sname varchar(100)
+)
+
+CREATE TABLE tblTeacher (
+    id int PRIMARY KEY auto_increment,
+    fname varchar(100),
+    sname varchar(100)
+)
+
+CREATE TABLE tblHouseMembers (
+    id int PRIMARY KEY auto_increment,
+    houseID int, 
+    studentID int,
+    FOREIGN KEY (houseID) references tblHouse(id),
+    FOREIGN KEY (studentID) references tblStudent(id)
+)
+
+CREATE TABLE tblHouseLeaders (
+    id int PRIMARY KEY auto_increment,
+    teacherID int,
+    houseID int,
+    FOREIGN KEY (teacherID) references tblTeacher(id),
+    FOREIGN KEY (houseID) references tblHouse(id)
+)
+
+//////////
+
+INSERT INTO tblHouse (houseName) values ("Gryffindor");
+INSERT INTO tblHouse (houseName) values ("Slytherin");
+INSERT INTO tblHouse (houseName) values ("Hufflepuff");
+INSERT INTO tblHouse (houseName) values ("Ravenclaw");
+
+
+/////////
+
+INSERT INTO tblStudent (fname, sname) values ("Harry", "Potter");
+INSERT INTO tblStudent (fname, sname) values ("Ron", "Weasly");
+
+//////////
+
+INSERT INTO tblTeacher (fname, sname) values ("Minerva", "McGonagal");
+INSERT INTO tblTeacher (fname, sname) values ("Severus", "Snape");
+
+////////////
+
+
+INSERT INTO tblHouseLeaders (teacherID, houseID) values (1, 1);
+INSERT INTO tblHouseLeaders (teacherID, houseID) values (2, 2);
+
+///////////
+
+
+
